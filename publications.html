@@ -43,16 +43,32 @@
 		    <iframe src="pubs_source.html" style="width: 100%; height: 1000px; border: none;" class="hanging-indent"></iframe>
 		</div>
 		    
+		<!-- JavaScript to inject styles into the iframe -->
 		<script>
 		    document.getElementById('publications-iframe').onload = function() {
-		        var iframe = document.getElementById('publications-iframe');
-		        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+			var iframe = document.getElementById('publications-iframe');
+			var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 		
-		        var link = iframeDocument.createElement('link');
-		        link.rel = 'stylesheet';
-		        link.type = 'text/css';
-		        link.href = 'style.css';
-		        iframeDocument.head.appendChild(link);
+			// Define your CSS styles as a string
+			var css = `
+			    body {
+				font-family: 'Open Sans', sans-serif;
+				padding: 20px;
+				/* Your other styles here */
+			    }
+			    .hanging-indent {
+				padding-left: 20px;
+				text-indent: -20px;
+			    }
+			`;
+		
+			// Create a style element
+			var style = iframeDocument.createElement('style');
+			style.type = 'text/css';
+			style.appendChild(iframeDocument.createTextNode(css));
+		
+			// Append the style to the iframe's head
+			iframeDocument.head.appendChild(style);
 		    };
 		</script>
             </div>
