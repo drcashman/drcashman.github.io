@@ -87,3 +87,8 @@ h4, h5, h6 {
     width: 150px;
     height: 150px;
 }
+
+.hanging-indent {
+    padding-left: 20px; /* Adjust as needed */
+    text-indent: -20px; /* Same value as padding-left */
+}
