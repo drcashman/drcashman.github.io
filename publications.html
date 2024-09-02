@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr David Cashman</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -21,7 +23,7 @@
                     </div>
                     <h2>Dr David Cashman</h2>
                     <p class="qualifications">PhD, MMus, GradCertAdEd, BMus</p>
-                    <p class="mt-2 small">Dr David Cashman is a Sydney-based pianist, educator, researcher, and advocate. His area of research is live music performance and industry, particularly in regional areas and the performance practice thereof. He is an adjunct Associate Professor at the University of Adelaide and a founding member of the Regional Music Research Group.</p> <!-- Ipsum Text -->
+                    <p class="mt-2 small">Dr David Cashman is a Sydney-based pianist, educator, researcher, and advocate. His area of research is live music performance and industry, particularly in regional areas and the performance practice thereof. He is an adjunct Associate Professor at the University of Adelaide and a founding member of the Regional Music Research Group.</p>
                 </div>
 
                 <!-- Menu -->
@@ -36,29 +38,22 @@
             </div>
 
             <!-- Content Column -->
-            <div class="col-md-9 content">          
-
+            <div class="col-md-9 content">
                 <div class="container mt-5">
-                    <!-- Remove fixed height -->
-                    <iframe id="publications-iframe" src="pubs_source.html" style="width: 100%; border: none;" class="hanging-indent"></iframe>
+                    <iframe id="publications-iframe" src="pubs_source.html" style="width: 100%; border: none;" scrolling="no" onload="resizeIframe(this)"></iframe>
                 </div>
-                
-                <!-- JavaScript to adjust iframe height dynamically -->
-                <script>
-                    document.getElementById('publications-iframe').onload = function() {
-                        var iframe = document.getElementById('publications-iframe');
-                        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                        
-                        // Adjust iframe height to content height
-                        iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
-                    };
-                </script>
             </div>
 
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    
+    <script>
+        function resizeIframe(iframe) {
+            iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px';
+        }
+    </script>
+    
 </body>
 </html>
