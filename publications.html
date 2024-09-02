@@ -25,7 +25,7 @@
                 </div>
 
                 <!-- Menu -->
-		<div class="nav flex-column nav-pills">
+                <div class="nav flex-column nav-pills">
                     <a class="nav-link" href="index.html"><i class="fas fa-home pe-2"></i> Home</a> 
                     <a class="nav-link" href="research.html"><i class="fa-solid fa-microscope pe-2"></i> Research</a>
                     <a class="nav-link active" href="publications.html"><i class="fa-solid fa-book pe-2"></i> Publications</a>
@@ -38,46 +38,27 @@
             <!-- Content Column -->
             <div class="col-md-9 content">          
 
-		<div class="container mt-5">
-		    <!-- Apply the hanging indent style -->
-		    <iframe src="pubs_source.html" style="width: 100%; height: 1000px; border: none;" class="hanging-indent"></iframe>
-		</div>
-		    
-		<!-- JavaScript to inject styles into the iframe -->
-		<script>
-		    document.getElementById('publications-iframe').onload = function() {
-			var iframe = document.getElementById('publications-iframe');
-			var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-		
-			// Define your CSS styles as a string
-			var css = `
-			    body {
-				font-family: 'Open Sans', sans-serif;
-				padding: 20px;
-				/* Your other styles here */
-			    }
-			    .hanging-indent {
-				padding-left: 20px;
-				text-indent: -20px;
-			    }
-			`;
-		
-			// Create a style element
-			var style = iframeDocument.createElement('style');
-			style.type = 'text/css';
-			style.appendChild(iframeDocument.createTextNode(css));
-		
-			// Append the style to the iframe's head
-			iframeDocument.head.appendChild(style);
-		    };
-		</script>
+                <div class="container mt-5">
+                    <!-- Remove fixed height -->
+                    <iframe id="publications-iframe" src="pubs_source.html" style="width: 100%; border: none;" class="hanging-indent"></iframe>
+                </div>
+                
+                <!-- JavaScript to adjust iframe height dynamically -->
+                <script>
+                    document.getElementById('publications-iframe').onload = function() {
+                        var iframe = document.getElementById('publications-iframe');
+                        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                        
+                        // Adjust iframe height to content height
+                        iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
+                    };
+                </script>
             </div>
 
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 </html>
