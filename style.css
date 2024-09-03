@@ -92,3 +92,12 @@ h4, h5, h6 {
     padding-left: 20px; /* Adjust as needed */
     text-indent: -20px; /* Same value as padding-left */
 }
+
+/* Nav link*/
+    .nav-link img {
+        filter: invert(27%) sepia(83%) saturate(5736%) hue-rotate(200deg) brightness(97%) contrast(106%);
+        /* This filter will make the SVG blue */
+    }
+    .nav-link.active img {
+        filter: none; /* Keeps the SVG white when the link is active */
+    }
